@@ -36,7 +36,9 @@ extern int inicio_fila_1;
 extern int fim_fila_1;
 
 int ex1(int n, int fila[], char operacao, int x){
+    
     int success = 0;
+    
     switch (operacao)
     {
         case 'i':
@@ -44,7 +46,7 @@ int ex1(int n, int fila[], char operacao, int x){
         break;
     
         case 'r':
-            success = desenfileira(n, &fila,  x);
+            success = desenfileira(n, &fila);
         break;
        
         case 't':
@@ -61,26 +63,27 @@ int ex1(int n, int fila[], char operacao, int x){
         break;
         
        default:
-         //Instruções;
+         success = 0;
          break;
     }    
     return success;
 }
 
-int enfileira(int n, int fila[], int x){
-    if(is_full() == 0){
+int enfileira(int n, int *thefila[], int x){
+    if(is_full(n) == 0){
         fim_fila_1 += 1;
-        fila[fim_fila_1] = x;
+        *thefila[fim_fila_1] = x;
         return 1;
     } else {
         return 0;
     }
 }
 
-int desenfileira(int n, int fila[], int x){
+int desenfileira(int n, int *thefila[]){
     if(is_empty() == 0){
+        
         inicio_fila_1 += 1;
-        fila[inicio_fila_1] = -1;
+        *thefila[inicio_fila_1] = -1;
         return 1;
     } else{
         return 0;
@@ -102,10 +105,10 @@ int is_empty(){
 
 int is_full(int n){
     if(fim_fila_1 == n){
+        printf("Fila cheia\n");
         return 1;
     } else {
+         printf("Fila NAO cheia\n");
         return 0;
-    }
+    }    
 }
-
-
