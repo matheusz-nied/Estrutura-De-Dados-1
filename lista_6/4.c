@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void troca(int *x,int  *y){
+    int aux = *x;
+    *x = *y;
+    *y = aux;
+
+}
+void main()
+{
+    int x, y;
+
+    puts("Digite o valor de x:");
+    scanf("%d", &x);
+
+    fflush(stdin);
+    puts("Digite o valor de y:");
+
+    scanf("%d",&y);
+
+    troca(&x, &y);
+
+    printf("x = %d & y = %d\n", x,y);
+
+}
