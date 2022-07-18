@@ -1,15 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void maior(int *x, int *y)
+void soma(int *x, int *y)
 {
-
-    if (*y > *x)
-    {
-        int aux = *x;
-        *x = *y;
-        *y = aux;
-    }
+    *x += *y;
 }
 void main()
 {
@@ -23,7 +17,7 @@ void main()
 
     scanf("%d", &y);
 
-    maior(&x, &y);
+    soma(&x, &y);
 
-    printf("x = %d & y = %d\n", x, y);
+    printf("x = %d | y = %d\n", x, y);
 }

@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void maior(int *x, int *y)
+int soma_dobro(int *x, int *y)
 {
 
-    if (*y > *x)
-    {
-        int aux = *x;
-        *x = *y;
-        *y = aux;
-    }
+        *x += *x;
+        *y += *y;
+    
+    return *x + *y;
 }
 void main()
 {
@@ -23,7 +21,7 @@ void main()
 
     scanf("%d", &y);
 
-    maior(&x, &y);
+    int result = soma_dobro(&x, &y);
 
-    printf("x = %d & y = %d\n", x, y);
+    printf("x = %d | y = %d | result = %d\n", x, y, result);
 }
